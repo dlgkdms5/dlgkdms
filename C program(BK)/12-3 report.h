@@ -21,7 +21,7 @@ int week2(int year, int month, int day) {
 	diff = difftime(userday, current);
 
 	diff = diff / (60 * 60 * 24);
-	printf("%d %d %d -> ¿À´Ã·ÎºÎÅÍ %dÀÏ ÈÄ(-Àü)ÀÔ´Ï´Ù.\n", year, month, day, diff);
+	printf("%d %d %d -> ì˜¤ëŠ˜ë¡œë¶€í„° %dì¼ í›„(-ì „)ì…ë‹ˆë‹¤.\n", year, month, day, diff);
 
 	return 0;
 }
