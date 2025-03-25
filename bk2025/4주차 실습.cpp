@@ -8,13 +8,13 @@ int main() {
 	double average;
 
 	for (int i = 0; i < 10; i++) {
-		printf("%d¹øÂ° ÇĞ»ı ¼ºÀûÀ» ÀÔ·ÂÇÏ½Ã¿À : ", i+1);
+		printf("%dë²ˆì§¸ í•™ìƒ ì„±ì ì„ ì…ë ¥í•˜ì‹œì˜¤ : ", i+1);
 		scanf("%d", &score[i]);
 		sum += score[i];
 	}
 
 	average = sum / 10.0;
-	printf("10¸íÀÇ ÇĞ»ı ÃÑ Á¡¼ö : %d\n", sum);
-	printf("10¸íÀÇ ÇĞ»ı Æò±Õ Á¡¼ö : %.2f\n", average);
+	printf("10ëª…ì˜ í•™ìƒ ì´ ì ìˆ˜ : %d\n", sum);
+	printf("10ëª…ì˜ í•™ìƒ í‰ê·  ì ìˆ˜ : %.2f\n", average);
 
 }
