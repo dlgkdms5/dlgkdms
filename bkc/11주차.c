@@ -27,7 +27,7 @@ int main() {
     int choice;
 
     do {
-        printf("¿øÇÏ´Â ¸Ş´º¸¦ ¼±ÅÃÇÏ¼¼¿ä.(1.ÀÔ°í, 2.ÆÇ¸Å, 3.°³º°ÇöÈ², 4.ÀüÃ¼ÇöÈ², 5.»óÇ°Á¤º¸ÀúÀå, 6.»óÇ°Á¤º¸°¡Á®¿À±â, 7.Á¾·á) : ");
+        printf("ì›í•˜ëŠ” ë©”ë‰´ë¥¼ ì„ íƒí•˜ì„¸ìš”.(1.ì…ê³ , 2.íŒë§¤, 3.ê°œë³„í˜„í™©, 4.ì „ì²´í˜„í™©, 5.ìƒí’ˆì •ë³´ì €ì¥, 6.ìƒí’ˆì •ë³´ê°€ì ¸ì˜¤ê¸°, 7.ì¢…ë£Œ) : ");
         scanf("%d", &choice);
 
         switch (choice) {
@@ -35,7 +35,7 @@ int main() {
             if (itemCount < MAX_ITEMS)
                 addItem(items, &itemCount);
             else
-                printf("´õ ÀÌ»ó »óÇ°À» Ãß°¡ÇÒ ¼ö ¾ø½À´Ï´Ù.\n");
+                printf("ë” ì´ìƒ ìƒí’ˆì„ ì¶”ê°€í•  ìˆ˜ ì—†ìŠµë‹ˆë‹¤.\n");
             break;
         case 2:
             sellItem(items, itemCount);
@@ -53,10 +53,10 @@ int main() {
             loadItemsFromFile(items, &itemCount);
             break;
         case 7:
-            printf("ÇÁ·Î±×·¥À» Á¾·áÇÕ´Ï´Ù.\n");
+            printf("í”„ë¡œê·¸ë¨ì„ ì¢…ë£Œí•©ë‹ˆë‹¤.\n");
             break;
         default:
-            printf("Àß¸øµÈ ÀÔ·ÂÀÔ´Ï´Ù. ´Ù½Ã ½ÃµµÇÏ¼¼¿ä.\n");
+            printf("ì˜ëª»ëœ ì…ë ¥ì…ë‹ˆë‹¤. ë‹¤ì‹œ ì‹œë„í•˜ì„¸ìš”.\n");
         }
     } while (choice != 7);
 
@@ -64,63 +64,63 @@ int main() {
 }
 
 void addItem(Item* items, int* count) {
-    printf("»óÇ° ID¸¦ ÀÔ·ÂÇÏ¼¼¿ä: ");
+    printf("ìƒí’ˆ IDë¥¼ ì…ë ¥í•˜ì„¸ìš”: ");
     scanf("%d", &items[*count].id);
-    printf("»óÇ°¸íÀ» ÀÔ·ÂÇÏ¼¼¿ä: ");
+    printf("ìƒí’ˆëª…ì„ ì…ë ¥í•˜ì„¸ìš”: ");
     scanf("%s", items[*count].name);
-    printf("»óÇ° °¡°İÀ» ÀÔ·ÂÇÏ¼¼¿ä: ");
+    printf("ìƒí’ˆ ê°€ê²©ì„ ì…ë ¥í•˜ì„¸ìš”: ");
     scanf("%f", &items[*count].price);
-    printf("ÀÔ°í ¼ö·®À» ÀÔ·ÂÇÏ¼¼¿ä: ");
+    printf("ì…ê³  ìˆ˜ëŸ‰ì„ ì…ë ¥í•˜ì„¸ìš”: ");
     scanf("%d", &items[*count].stock);
     items[*count].sales = 0;
     items[*count].total_stock = items[*count].stock;
     (*count)++;
-    printf("»óÇ°ÀÌ ¼º°øÀûÀ¸·Î Ãß°¡µÇ¾ú½À´Ï´Ù.\n");
+    printf("ìƒí’ˆì´ ì„±ê³µì ìœ¼ë¡œ ì¶”ê°€ë˜ì—ˆìŠµë‹ˆë‹¤.\n");
 }
 
 void sellItem(Item* items, int count) {
     int id, quantity, i;
-    printf("ÆÇ¸ÅÇÒ »óÇ° ID¸¦ ÀÔ·ÂÇÏ¼¼¿ä: ");
+    printf("íŒë§¤í•  ìƒí’ˆ IDë¥¼ ì…ë ¥í•˜ì„¸ìš”: ");
     scanf("%d", &id);
 
     for (i = 0; i < count; i++) {
         if (items[i].id == id) {
-            printf("ÆÇ¸Å ¼ö·®À» ÀÔ·ÂÇÏ¼¼¿ä: ");
+            printf("íŒë§¤ ìˆ˜ëŸ‰ì„ ì…ë ¥í•˜ì„¸ìš”: ");
             scanf("%d", &quantity);
             if (quantity > items[i].stock) {
-                printf("Àç°í°¡ ºÎÁ·ÇÕ´Ï´Ù.\n");
+                printf("ì¬ê³ ê°€ ë¶€ì¡±í•©ë‹ˆë‹¤.\n");
             }
             else {
                 items[i].stock -= quantity;
                 items[i].sales += quantity;
-                printf("ÆÇ¸Å°¡ ¿Ï·áµÇ¾ú½À´Ï´Ù.\n");
+                printf("íŒë§¤ê°€ ì™„ë£Œë˜ì—ˆìŠµë‹ˆë‹¤.\n");
             }
             return;
         }
     }
-    printf("ÇØ´ç »óÇ°ÀÌ Á¸ÀçÇÏÁö ¾Ê½À´Ï´Ù.\n");
+    printf("í•´ë‹¹ ìƒí’ˆì´ ì¡´ì¬í•˜ì§€ ì•ŠìŠµë‹ˆë‹¤.\n");
 }
 
 void displayItemStatus(Item* items, int count) {
     int id, i;
-    printf("Á¶È¸ÇÒ »óÇ° ID¸¦ ÀÔ·ÂÇÏ¼¼¿ä: ");
+    printf("ì¡°íšŒí•  ìƒí’ˆ IDë¥¼ ì…ë ¥í•˜ì„¸ìš”: ");
     scanf("%d", &id);
 
     for (i = 0; i < count; i++) {
         if (items[i].id == id) {
-            printf("»óÇ°¸í: %s\n", items[i].name);
-            printf("»óÇ° °¡°İ: %.2f\n", items[i].price);
-            printf("Àç°í ¼ö·®: %d\n", items[i].stock);
-            printf("ÃÑ ÆÇ¸Å·®: %d\n", items[i].sales);
+            printf("ìƒí’ˆëª…: %s\n", items[i].name);
+            printf("ìƒí’ˆ ê°€ê²©: %.2f\n", items[i].price);
+            printf("ì¬ê³  ìˆ˜ëŸ‰: %d\n", items[i].stock);
+            printf("ì´ íŒë§¤ëŸ‰: %d\n", items[i].sales);
             return;
         }
     }
-    printf("ÇØ´ç »óÇ°ÀÌ Á¸ÀçÇÏÁö ¾Ê½À´Ï´Ù.\n");
+    printf("í•´ë‹¹ ìƒí’ˆì´ ì¡´ì¬í•˜ì§€ ì•ŠìŠµë‹ˆë‹¤.\n");
 }
 
 void displayAllItems(Item* items, int count) {
-    printf("ÀüÃ¼ »óÇ° ÇöÈ²:\n");
-    printf("ID | ÀÌ¸§       | °¡°İ   | Àç°í | ÆÇ¸Å·® | ÆÇ¸ÅÀ²\n");
+    printf("ì „ì²´ ìƒí’ˆ í˜„í™©:\n");
+    printf("ID | ì´ë¦„       | ê°€ê²©   | ì¬ê³  | íŒë§¤ëŸ‰ | íŒë§¤ìœ¨\n");
     printf("-----------------------------------------------\n");
     for (int i = 0; i < count; i++) {
         float sell_rate = (items[i].total_stock > 0) ?
@@ -134,21 +134,21 @@ void displayAllItems(Item* items, int count) {
 void saveItemsToFile(Item* items, int count) {
     FILE* file = fopen(FILE_NAME, "wb");
     if (file == NULL) {
-        printf("ÆÄÀÏ ÀúÀå¿¡ ½ÇÆĞÇß½À´Ï´Ù.\n");
+        printf("íŒŒì¼ ì €ì¥ì— ì‹¤íŒ¨í–ˆìŠµë‹ˆë‹¤.\n");
         return;
     }
     fwrite(items, sizeof(Item), count, file);
     fclose(file);
-    printf("»óÇ° Á¤º¸°¡ ¼º°øÀûÀ¸·Î ÀúÀåµÇ¾ú½À´Ï´Ù.\n");
+    printf("ìƒí’ˆ ì •ë³´ê°€ ì„±ê³µì ìœ¼ë¡œ ì €ì¥ë˜ì—ˆìŠµë‹ˆë‹¤.\n");
 }
 
 void loadItemsFromFile(Item* items, int* count) {
     FILE* file = fopen(FILE_NAME, "rb");
     if (file == NULL) {
-        printf("ÀúÀåµÈ ÆÄÀÏÀÌ ¾ø½À´Ï´Ù.\n");
+        printf("ì €ì¥ëœ íŒŒì¼ì´ ì—†ìŠµë‹ˆë‹¤.\n");
         return;
     }
     *count = fread(items, sizeof(Item), MAX_ITEMS, file);
     fclose(file);
-    printf("»óÇ° Á¤º¸°¡ ¼º°øÀûÀ¸·Î ºÒ·¯¿ÍÁ³½À´Ï´Ù.\n");
+    printf("ìƒí’ˆ ì •ë³´ê°€ ì„±ê³µì ìœ¼ë¡œ ë¶ˆëŸ¬ì™€ì¡ŒìŠµë‹ˆë‹¤.\n");
 }
