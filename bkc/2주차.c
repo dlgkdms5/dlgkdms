@@ -14,20 +14,20 @@ int main()
 	int* p_stock = stock;
 	int* p_sold = sold;
 
-	printf("»óÇ° Á¾·ùÀÇ °¹¼ö¸¦ ÀÔ·ÂÇÏ½Ã¿À (1~100):");
+	printf("ìƒí’ˆ ì¢…ë¥˜ì˜ ê°¯ìˆ˜ë¥¼ ì…ë ¥í•˜ì‹œì˜¤ (1~100):");
 	scanf("%d", &num);
 
 	if (num < 1 || num>100) {
-		printf("1ºÎÅÍ 100±îÁöÀÇ ¼ö¸¦ ÀÔ·ÂÇÏ½Ã¿À:");
+		printf("1ë¶€í„° 100ê¹Œì§€ì˜ ìˆ˜ë¥¼ ì…ë ¥í•˜ì‹œì˜¤:");
 		return 1;
 	}
 
-	printf("»óÇ°º° Àç°í ¼ö·®À» ÀÔ·ÂÇÏ½Ã¿À:");
+	printf("ìƒí’ˆë³„ ì¬ê³  ìˆ˜ëŸ‰ì„ ì…ë ¥í•˜ì‹œì˜¤:");
 	for (int i = 0; i < num; i++) {
 		scanf("%d", p_stock + i);
 	}
 
-	printf("»óÇ°º° ÆÇ¸Å ¼ö·®À» ÀÔ·ÂÇÏ½Ã¿À:");
+	printf("ìƒí’ˆë³„ íŒë§¤ ìˆ˜ëŸ‰ì„ ì…ë ¥í•˜ì‹œì˜¤:");
 	for (int i = 0; i < num; i++) {
 		scanf("%d", p_sold + i);
 		*(p_stock + i) -= *(p_sold + i);
@@ -50,20 +50,20 @@ int main()
 	}
 	totalrate = ((float)totalsales / totalstock);
 
-	printf("\nÀç°í¼ö·® : ");
+	printf("\nì¬ê³ ìˆ˜ëŸ‰ : ");
 	for (int i = 0; i < num; i++) {
 		printf("%d", *(p_stock + i));
 	}
 	printf("\n");
 
-	printf("ÃÑ ÆÇ¸Å·® : %d (ÆÇ¸ÅÀ² %.2f%%)", totalsales, totalrate * 100);
+	printf("ì´ íŒë§¤ëŸ‰ : %d (íŒë§¤ìœ¨ %.2f%%)", totalsales, totalrate * 100);
 
-	printf("\n°¡Àå ¸¹ÀÌ ÆÇ¸ÅµÈ »óÇ° : ID %d, ÆÇ¸Å·® %d\n", maxid, maxsales);
-	printf("°¡Àå Àû°Ô ÆÇ¸ÅµÈ »óÇ° : ID %d, ÆÇ¸Å·® %d\n", minid, minsales);
+	printf("\nê°€ì¥ ë§ì´ íŒë§¤ëœ ìƒí’ˆ : ID %d, íŒë§¤ëŸ‰ %d\n", maxid, maxsales);
+	printf("ê°€ì¥ ì ê²Œ íŒë§¤ëœ ìƒí’ˆ : ID %d, íŒë§¤ëŸ‰ %d\n", minid, minsales);
 
 	for (int i = 0; i < num; i++) {
 		if (*(p_stock + i) <= 2) {
-			printf("»óÇ° ID %d : Àç°íºÎÁ·(%d)\n", i + 1, *(p_stock + i));
+			printf("ìƒí’ˆ ID %d : ì¬ê³ ë¶€ì¡±(%d)\n", i + 1, *(p_stock + i));
 		}
 	}
 	return 0;
@@ -86,21 +86,21 @@ void scan(struct system* s, int* size, int* id) {
 void print(struct system* s, int* size, int* id) {
 	double allout = 0, allin = 0;
 	int i, j, m = 0, M = 100;
-	printf("Àç°í¼ö·®: ");
+	printf("ì¬ê³ ìˆ˜ëŸ‰: ");
 	for (int i = 0; i < *size; i++) {
 		printf("%d ", s[i].in - s[i].out);
 		allin += s[i].in;
 		allout += s[i].out;
 	}
-	printf("\nÃÑÆÇ¸Å·®: %.f(ÆÇ¸ÅÀ² %0.2f)\n", allout, (allout / allin) * 100);
+	printf("\nì´íŒë§¤ëŸ‰: %.f(íŒë§¤ìœ¨ %0.2f)\n", allout, (allout / allin) * 100);
 	for (i = 0, j = 0; i < *size; i++)
 		if (m < s[i].out) m = s[i].out, j = i + 1;
-	printf("°¡Àå ¸¹ÀÌ ÆÇ¸ÅµÈ »óÇ° : ID %d,ÆÇ¸Å·® %d\n", j, m);
+	printf("ê°€ì¥ ë§ì´ íŒë§¤ëœ ìƒí’ˆ : ID %d,íŒë§¤ëŸ‰ %d\n", j, m);
 	for (i = 0, j = 0; i < *size; i++)
 		if (M > s[i].out) M = s[i].out, j = i + 1;
-	printf("°¡Àå Àû°Ô ÆÇ¸ÅµÈ »óÇ° : ID %d,ÆÇ¸Å·® %d\n", j, M);
+	printf("ê°€ì¥ ì ê²Œ íŒë§¤ëœ ìƒí’ˆ : ID %d,íŒë§¤ëŸ‰ %d\n", j, M);
 	for (i = 0; i < *size; i++)
-		if (s[i].in - s[i].out <= 2) printf("»óÇ° ID %d : Àç°íºÎÁ·(%d)\n", i + 1, s[i].in - s[i].out);
+		if (s[i].in - s[i].out <= 2) printf("ìƒí’ˆ ID %d : ì¬ê³ ë¶€ì¡±(%d)\n", i + 1, s[i].in - s[i].out);
 }
 
 int main() {
@@ -108,4 +108,4 @@ int main() {
 	struct system s[101] = { 0 };
 	scan(s, &n, &id);
 	print(s, &n, &id);
-}*/ //Çö¿ì ÄÚµå
+}*/ //í˜„ìš° ì½”ë“œ
