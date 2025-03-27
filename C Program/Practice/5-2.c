@@ -13,8 +13,8 @@ int main() {
 			count[input[i] - 'a']++;
 		i++;
 	}
-	printf("�Է¹��ڿ� : %s\n", input);
+	printf("ÀÔ·Â¹®ÀÚ¿­ : %s\n", input);
 	for (i = 0; i < 26; i++)
-		printf("%c ����Ƚ�� : %d\n", 'a' + i, count[i]);
+		printf("%c ÃâÇöÈ½¼ö : %d\n", 'a' + i, count[i]);
 	return 0;
 }
