@@ -35,10 +35,10 @@ int main()
 
 	distance = dist(c2.center, point);
 	if (distance <= c2.radius) {
-		printf("¿ø ¾È¿¡ ÀÖ½À´Ï´Ù,\n");
+		printf("ì› ì•ˆì— ìžˆìŠµë‹ˆë‹¤,\n");
 	}
 	else {
-		printf("¿ø ¹Û¿¡ ÀÖ½À´Ï´Ù.\n");
+		printf("ì› ë°–ì— ìžˆìŠµë‹ˆë‹¤.\n");
 	}
 
 	return 0;
