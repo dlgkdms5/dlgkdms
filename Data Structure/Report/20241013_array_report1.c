@@ -2,38 +2,38 @@
 #include <stdlib.h>
 #include <time.h>
 
-// ÇÔ¼ö ¼±¾ğ
+// í•¨ìˆ˜ ì„ ì–¸
 double calculateAverage(int scores[], int size);
 int getStudentScore(int scores[], int size, int studentNumber);
 void printScore(int scores[], int size, double average, int option);
 
 int main() {
-    int scores[30]; // 30¸íÀÇ ÇĞ»ı ¼ºÀû ÀúÀå
+    int scores[30]; // 30ëª…ì˜ í•™ìƒ ì„±ì  ì €ì¥
     int studentNumber;
     double average;
 
-    // ³­¼ö »ı¼º ÃÊ±âÈ­
+    // ë‚œìˆ˜ ìƒì„± ì´ˆê¸°í™”
     srand(time(0));
 
-    // ¼ºÀû µ¥ÀÌÅÍ ÃÊ±âÈ­
+    // ì„±ì  ë°ì´í„° ì´ˆê¸°í™”
     for (int i = 0; i < 30; i++) {
-        scores[i] = rand() % 101; // 0 ~ 100 »çÀÌÀÇ ³­¼ö »ı¼º
+        scores[i] = rand() % 101; // 0 ~ 100 ì‚¬ì´ì˜ ë‚œìˆ˜ ìƒì„±
     }
 
-    // Æò±Õ °è»ê
+    // í‰ê·  ê³„ì‚°
     average = calculateAverage(scores, 30);
-    printf("ÇĞ±Ş Æò±Õ Á¡¼ö: %.2f\n", average);
+    printf("í•™ê¸‰ í‰ê·  ì ìˆ˜: %.2f\n", average);
 
-    // Æ¯Á¤ ÇĞ»ı Á¡¼ö °Ë»ö
-    printf("ÇĞ»ı ¹øÈ£¸¦ ÀÔ·ÂÇÏ¼¼¿ä (1 ~ 30): ");
+    // íŠ¹ì • í•™ìƒ ì ìˆ˜ ê²€ìƒ‰
+    printf("í•™ìƒ ë²ˆí˜¸ë¥¼ ì…ë ¥í•˜ì„¸ìš” (1 ~ 30): ");
     scanf("%d", &studentNumber);
 
     int score = getStudentScore(scores, 30, studentNumber);
     if (score != -1) {
-        printf("%d¹ø ÇĞ»ıÀÇ Á¡¼ö: %d\n", studentNumber, score);
+        printf("%dë²ˆ í•™ìƒì˜ ì ìˆ˜: %d\n", studentNumber, score);
     }
     else {
-        printf("À¯È¿ÇÏÁö ¾ÊÀº ÇĞ»ı ¹øÈ£ÀÔ´Ï´Ù.\n");
+        printf("ìœ íš¨í•˜ì§€ ì•Šì€ í•™ìƒ ë²ˆí˜¸ì…ë‹ˆë‹¤.\n");
     }
 
     printScore(scores, 30, average, 0);
@@ -42,7 +42,7 @@ int main() {
     return 0;
 }
 
-// Æò±Õ °è»ê ÇÔ¼ö
+// í‰ê·  ê³„ì‚° í•¨ìˆ˜
 double calculateAverage(int scores[], int size) {
     int sum = 0;
     for (int i = 0; i < size; i++) {
@@ -51,13 +51,13 @@ double calculateAverage(int scores[], int size) {
     return sum / (double)size;
 }
 
-// Æ¯Á¤ ÇĞ»ı Á¡¼ö °Ë»ö ÇÔ¼ö
+// íŠ¹ì • í•™ìƒ ì ìˆ˜ ê²€ìƒ‰ í•¨ìˆ˜
 int getStudentScore(int scores[], int size, int studentNumber) {
     if (studentNumber >= 1 && studentNumber <= size) {
         return scores[studentNumber - 1];
     }
     else {
-        return -1; // À¯È¿ÇÏÁö ¾ÊÀº ÇĞ»ı ¹øÈ£
+        return -1; // ìœ íš¨í•˜ì§€ ì•Šì€ í•™ìƒ ë²ˆí˜¸
     }
 }
 
@@ -65,23 +65,23 @@ void printScore(int scores[], int size, double average, int option) {
     switch (option) {
     case 0:
         for (int i = 0; i < size; i++) {
-            printf("ÇĞ»ı ¹øÈ£ : %d, Á¡¼ö %d\n", i + 1, scores[i]);
+            printf("í•™ìƒ ë²ˆí˜¸ : %d, ì ìˆ˜ %d\n", i + 1, scores[i]);
         }
         break;
     case 1:
-        printf("Æò±Õ ÀÌ»ó ÇĞ»ı\n");
+        printf("í‰ê·  ì´ìƒ í•™ìƒ\n");
         for (int i = 0; i < size; i++) {
-            if (scores[i] >= average) printf("ÇĞ»ı ¹øÈ£ : %d, Á¡¼ö %d\n", i + 1, scores[i]);
+            if (scores[i] >= average) printf("í•™ìƒ ë²ˆí˜¸ : %d, ì ìˆ˜ %d\n", i + 1, scores[i]);
         }
         break;
     case 2:
-        printf("Æò±Õ ¹Ì¸¸ ÇĞ»ı\n");
+        printf("í‰ê·  ë¯¸ë§Œ í•™ìƒ\n");
         for (int i = 0; i < size; i++) {
-            if (scores[i] < average) printf("ÇĞ»ı ¹øÈ£ : %d, Á¡¼ö %d\n", i + 1, scores[i]);
+            if (scores[i] < average) printf("í•™ìƒ ë²ˆí˜¸ : %d, ì ìˆ˜ %d\n", i + 1, scores[i]);
         }
         break;
     default: //error
-        printf("À¯È¿ÇÏÁö ¾Ê´Â ¿É¼ÇÀÔ´Ï´Ù.\n");
+        printf("ìœ íš¨í•˜ì§€ ì•ŠëŠ” ì˜µì…˜ì…ë‹ˆë‹¤.\n");
         break;
     }
 }
