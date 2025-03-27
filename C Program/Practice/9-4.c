@@ -25,7 +25,7 @@ int main() {
 
 	while (!feof(fp_src)) {
 		fgets(input, 100, fp_src);
-		printf("Ãâ ·Â Áß");
+		printf("ÃƒÃ¢ Â·Ã‚ ÃÃŸ");
 		fputs(input, fp_dest);
 	}
 
