@@ -51,12 +51,12 @@ int main() {
 		return 0;
 	}
 
-	printf("1¹øÂ° Çà·Ä ÀÔ·Â:\n");
+	printf("1ë²ˆì§¸ í–‰ë ¬ ìž…ë ¥:\n");
 	for (int i = 0; i < m1.rows; i++) {
 		for (int j = 0; j < m1.cols; j++)
 			scanf("%d", &m1.data[i][j]);
 	}
-	printf("2¹øÂ° Çà·Ä ÀÔ·Â:\n");
+	printf("2ë²ˆì§¸ í–‰ë ¬ ìž…ë ¥:\n");
 	for (int i = 0; i < m2.rows; i++) {
 		for (int j = 0; j < m2.cols; j++)
 			scanf("%d", &m2.data[i][j]);
