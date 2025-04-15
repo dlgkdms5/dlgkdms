@@ -64,6 +64,6 @@ int evaluatePostfix(char* postfix) {
 
 int main() {
 	char postfix[MAX] = "12+5*";
-	printf("ÈÄÀ§Ç¥±â½Ä °è»ê °á°ú : %d\n", evaluatePostfix(postfix));
+	printf("ÃˆÃ„Ã€Â§Ã‡Â¥Â±Ã¢Â½Ã„ Â°Ã¨Â»Ãª Â°Ã¡Â°Ãº : %d\n", evaluatePostfix(postfix));
 	return 0;
 }
