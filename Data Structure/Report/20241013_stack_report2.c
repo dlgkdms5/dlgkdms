@@ -69,7 +69,7 @@ int main() {
     initStack(&s);
     int isValid = 1;
 
-    printf("¹®ÀÚ¿­ ÀÔ·Â : ");
+    printf("ë¬¸ìì—´ ì…ë ¥ : ");
     fgets(str, MAX, stdin);
     str[strcspn(str, "\n")] = '\0';
 
@@ -88,8 +88,8 @@ int main() {
     }
     if (!isEmpty(&s)) isValid = 0;
 
-    if (isValid) printf("À¯È¿ÇÑ °ıÈ£\n");
-    else    printf("À¯È¿ÇÏÁö ¾ÊÀº °ıÈ£\n");
+    if (isValid) printf("ìœ íš¨í•œ ê´„í˜¸\n");
+    else    printf("ìœ íš¨í•˜ì§€ ì•Šì€ ê´„í˜¸\n");
 
     return 0;
 }
