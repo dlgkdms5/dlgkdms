@@ -61,12 +61,12 @@ int main() {
 	char str[MAX];
 	initStack(&s);
 
-	printf("¹®ÀÚ¿­ ÀÔ·Â : ");
+	printf("ë¬¸ìì—´ ì…ë ¥ : ");
 	fgets(str, MAX, stdin);
     str[strcspn(str, "\n")] = '\0';
 
 	for (int i = 0; str[i] != '\0'; i++)	push(&s, str[i]);
-	printf("°Å²Ù·Î µÈ ¹®ÀÚ¿­ : ");
+	printf("ê±°ê¾¸ë¡œ ëœ ë¬¸ìì—´ : ");
 	while (!isEmpty(&s)) {
 		printf("%c", pop(&s));
 	}
