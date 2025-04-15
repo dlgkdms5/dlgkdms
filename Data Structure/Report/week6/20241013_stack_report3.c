@@ -43,19 +43,19 @@ int infixToPostfix(char* infix, char* postfix) {
 	int j = 0;
 	for (int i = 0; infix[i] != '\0'; i++) {
 		char ch = infix[i];
-		if (isalpha(ch) || isdigit(ch)) {				//ÇÇ¿¬»êÀÚ - ¼ıÀÚ, ¹®ÀÚ
+		if (isalpha(ch) || isdigit(ch)) {				//í”¼ì—°ì‚°ì - ìˆ«ì, ë¬¸ì
 			postfix[j++] = ch;
 		}
-		else if (ch == '(') {		//¿©´Â °ıÈ£
+		else if (ch == '(') {		//ì—¬ëŠ” ê´„í˜¸
 			push(&s, ch);
 		}
-		else if (ch == ')') {		//´İ´Â °ıÈ£
+		else if (ch == ')') {		//ë‹«ëŠ” ê´„í˜¸
 			while (!isEmpty(&s) && peek(&s) != '(') {
 				postfix[j++] = pop(&s);
 			}
 			pop(&s);
 		}
-		else {						//¿¬»êÀÚ
+		else {						//ì—°ì‚°ì
 			while (!isEmpty(&s) && precedence(peek(&s)) >= precedence(ch)) {
 				postfix[j++] = pop(&s);
 			}
@@ -73,10 +73,10 @@ int main() {
 	char infix[MAX];
 	char postfix[MAX];
 	int result;
-	printf("ÁßÀ§Ç¥±â½Ä ÀÔ·Â : ");
+	printf("ì¤‘ìœ„í‘œê¸°ì‹ ì…ë ¥ : ");
 	scanf("%s", infix);
 	result = infixToPostfix(infix, postfix);
-	printf("ÈÄÀ§Ç¥±â½Ä : %s\n", postfix);
-	printf("ÈÄÀ§Ç¥±â½Ä °è»ê °á°ú : %d\n", result);
+	printf("í›„ìœ„í‘œê¸°ì‹ : %s\n", postfix);
+	printf("í›„ìœ„í‘œê¸°ì‹ ê³„ì‚° ê²°ê³¼ : %d\n", result);
 	return 0;
 }
