@@ -24,7 +24,7 @@ bool isFull(LinearQueue* q) {
 
 bool enqueue(LinearQueue* q, int value) {
     if (isFull(q)) {
-        printf("Å¥°¡ °¡µæ Ã¡½À´Ï´Ù.\n");
+        printf("íê°€ ê°€ë“ ì°¼ìŠµë‹ˆë‹¤.\n");
         return false;
     }
     q->rear++;
@@ -33,7 +33,7 @@ bool enqueue(LinearQueue* q, int value) {
 
 int dequeue(LinearQueue* q) {
     if (isEmpty(q)) {
-        printf("Å¥°¡ ºñ¾î ÀÖ½À´Ï´Ù.\n");
+        printf("íê°€ ë¹„ì–´ ìˆìŠµë‹ˆë‹¤.\n");
         initQueue(&q);
         return -1;
     }
@@ -49,12 +49,12 @@ int main() {
     int value;
 
     while (true) {
-        printf("¸Ş´º¸¦ ¼±ÅÃÇÏ½Ã¿À (1. »ğÀÔ, 2. »èÁ¦, 3. Å¥ µ¥ÀÌÅÍ Ãâ·Â, 4. Á¾·á) : ");
+        printf("ë©”ë‰´ë¥¼ ì„ íƒí•˜ì‹œì˜¤ (1. ì‚½ì…, 2. ì‚­ì œ, 3. í ë°ì´í„° ì¶œë ¥, 4. ì¢…ë£Œ) : ");
         scanf("%d", &menu);
 
         switch (menu) {
         case 1:
-            printf("»ğÀÔÇÒ Å¥¸¦ ÀÔ·ÂÇÏ½Ã¿À : \n");
+            printf("ì‚½ì…í•  íë¥¼ ì…ë ¥í•˜ì‹œì˜¤ : \n");
             scanf("%d", &value);
             enqueue(&q, value);
             break;
