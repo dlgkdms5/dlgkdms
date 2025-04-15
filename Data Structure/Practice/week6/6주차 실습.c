@@ -72,12 +72,12 @@ void infixToPostfix(char* infix) {
 	}
 	postfix[j] = '\0';
 
-	printf("ÈÄÀ§Ç¥±â½Ä : %s\n", postfix);
+	printf("í›„ìœ„í‘œê¸°ì‹ : %s\n", postfix);
 }
 
 int main() {
 	char infix[MAX];
-	printf("ÁßÀ§Ç¥±â½ÄÀ» ÀÔ·ÂÇÏ¼¼¿ä : ");
+	printf("ì¤‘ìœ„í‘œê¸°ì‹ì„ ì…ë ¥í•˜ì„¸ìš” : ");
 	scanf("%s", infix);
 
 	infixToPostfix(infix);
