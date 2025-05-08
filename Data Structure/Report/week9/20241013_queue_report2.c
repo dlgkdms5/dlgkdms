@@ -3,57 +3,57 @@
 #include <stdlib.h>
 #include <string.h>
 
-#define SIZE 10  // ÃÖ´ë ÀÛ¾÷ ´ë±â¿­ Å©±â
+#define SIZE 10  // ìµœëŒ€ ì‘ì—… ëŒ€ê¸°ì—´ í¬ê¸°
 
-// ÇÁ¸°ÅÍ ÀÛ¾÷ ±¸Á¶Ã¼
+// í”„ë¦°í„° ì‘ì—… êµ¬ì¡°ì²´
 typedef struct {
-    char documentName[50];  // ¹®¼­ ÀÌ¸§
-    int numPages;  // ¹®¼­ ÆäÀÌÁö ¼ö
+    char documentName[50];  // ë¬¸ì„œ ì´ë¦„
+    int numPages;  // ë¬¸ì„œ í˜ì´ì§€ ìˆ˜
 } PrintJob;
 
 typedef struct {
-    PrintJob queue[SIZE];  // ÀÛ¾÷ ´ë±â¿­ ¹è¿­
-    int front;  // Ã¹ ¹øÂ° ÀÛ¾÷ ÀÎµ¦½º
-    int rear;   // ¸¶Áö¸· ÀÛ¾÷ ÀÎµ¦½º
+    PrintJob queue[SIZE];  // ì‘ì—… ëŒ€ê¸°ì—´ ë°°ì—´
+    int front;  // ì²« ë²ˆì§¸ ì‘ì—… ì¸ë±ìŠ¤
+    int rear;   // ë§ˆì§€ë§‰ ì‘ì—… ì¸ë±ìŠ¤
 } PrintQueue;
 
-// ÃÊ±âÈ­ ÇÔ¼ö
+// ì´ˆê¸°í™” í•¨ìˆ˜
 void initQueue(PrintQueue* q) {
     q->front = 0;
     q->rear = 0;
 }
 
-// Å¥°¡ ºñ¾î ÀÖ´ÂÁö È®ÀÎ
+// íê°€ ë¹„ì–´ ìˆëŠ”ì§€ í™•ì¸
 bool isEmpty(PrintQueue* q) {
     return q->front == q->rear;
 }
 
-// Å¥°¡ °¡µæ Ã¡´ÂÁö È®ÀÎ
+// íê°€ ê°€ë“ ì°¼ëŠ”ì§€ í™•ì¸
 bool isFull(PrintQueue* q) {
     return (q->rear + 1) % SIZE == q->front;
 }
 
-// ÀÛ¾÷ Ãß°¡ ÇÔ¼ö
+// ì‘ì—… ì¶”ê°€ í•¨ìˆ˜
 bool enqueue(PrintQueue* q, char* documentName, int numPages) {
     if (numPages > 50) {
-        printf("ÆäÀÌÁö ¼ö°¡ 50ÀåÀ» ÃÊ°úÇÔ. ÀÛ¾÷À» Ãß°¡ÇÒ ¼ö ¾øÀ½.\n");
+        printf("í˜ì´ì§€ ìˆ˜ê°€ 50ì¥ì„ ì´ˆê³¼í•¨. ì‘ì—…ì„ ì¶”ê°€í•  ìˆ˜ ì—†ìŒ.\n");
         return false;
     }
     if (isFull(q)) {
-        printf("´ë±â¿­ÀÌ °¡µæ Ã¡½À´Ï´Ù. ÀÛ¾÷À» Ãß°¡ÇÒ ¼ö ¾ø½À´Ï´Ù.\n");
+        printf("ëŒ€ê¸°ì—´ì´ ê°€ë“ ì°¼ìŠµë‹ˆë‹¤. ì‘ì—…ì„ ì¶”ê°€í•  ìˆ˜ ì—†ìŠµë‹ˆë‹¤.\n");
         return false;
     }
     strcpy(q->queue[q->rear].documentName, documentName);
     q->queue[q->rear].numPages = numPages;
     q->rear = (q->rear + 1) % SIZE;
-    printf("ÀÛ¾÷ '%s' (%d ÆäÀÌÁö)°¡ ´ë±â¿­¿¡ Ãß°¡µÇ¾ú½À´Ï´Ù.\n", documentName, numPages);
+    printf("ì‘ì—… '%s' (%d í˜ì´ì§€)ê°€ ëŒ€ê¸°ì—´ì— ì¶”ê°€ë˜ì—ˆìŠµë‹ˆë‹¤.\n", documentName, numPages);
     return true;
 }
 
-// ÀÛ¾÷ Á¦°Å ÇÔ¼ö
+// ì‘ì—… ì œê±° í•¨ìˆ˜
 PrintJob dequeue(PrintQueue* q) {
     if (isEmpty(q)) {
-        printf("´ë±â¿­ÀÌ ºñ¾î ÀÖ½À´Ï´Ù. ÀÛ¾÷ÀÌ ¾ø½À´Ï´Ù.\n");
+        printf("ëŒ€ê¸°ì—´ì´ ë¹„ì–´ ìˆìŠµë‹ˆë‹¤. ì‘ì—…ì´ ì—†ìŠµë‹ˆë‹¤.\n");
         PrintJob emptyJob = { "", 0 };
         return emptyJob;
     }
@@ -62,28 +62,28 @@ PrintJob dequeue(PrintQueue* q) {
     return job;
 }
 
-// ´ë±â¿­ »óÅÂ Ãâ·Â ÇÔ¼ö
+// ëŒ€ê¸°ì—´ ìƒíƒœ ì¶œë ¥ í•¨ìˆ˜
 void printQueue(PrintQueue* q) {
     if (isEmpty(q)) {
-        printf("´ë±â¿­ÀÌ ºñ¾î ÀÖ½À´Ï´Ù.\n");
+        printf("ëŒ€ê¸°ì—´ì´ ë¹„ì–´ ìˆìŠµë‹ˆë‹¤.\n");
         return;
     }
-    printf("ÇöÀç ´ë±â ÁßÀÎ ÀÛ¾÷:\n");
+    printf("í˜„ì¬ ëŒ€ê¸° ì¤‘ì¸ ì‘ì—…:\n");
     int i = q->front;
     while (i != q->rear) {
-        printf("- %s (%d ÆäÀÌÁö)\n", q->queue[i].documentName, q->queue[i].numPages);
+        printf("- %s (%d í˜ì´ì§€)\n", q->queue[i].documentName, q->queue[i].numPages);
         i = (i + 1) % SIZE;
     }
 }
 
 void clearQueue(PrintQueue* q) {
     initQueue(q);
-    printf("´ë±â¿­ÀÌ ÃÊ±âÈ­ µÇ¾ú½À´Ï´Ù.\n");
+    printf("ëŒ€ê¸°ì—´ì´ ì´ˆê¸°í™” ë˜ì—ˆìŠµë‹ˆë‹¤.\n");
 }
 
 bool cancelJob(PrintQueue* q, char* documentName) {
     if (isEmpty(q)) {
-        printf("´ë±â¿­ÀÌ ºñ¾î ÀÖ½À´Ï´Ù.");
+        printf("ëŒ€ê¸°ì—´ì´ ë¹„ì–´ ìˆìŠµë‹ˆë‹¤.");
         return;
     }
     int found = -1;
@@ -94,14 +94,14 @@ bool cancelJob(PrintQueue* q, char* documentName) {
         }
     }
     if (found = -1) {
-        printf("ÇØ´ç ¹®¼­ ¾øÀ½.\n");
+        printf("í•´ë‹¹ ë¬¸ì„œ ì—†ìŒ.\n");
         return false;
     }
     for (int i = found; i != q->rear; i = (i + 1) % SIZE){
         q->queue[i] = q->queue[(i + 1) % SIZE];
     }
     q->rear = (q->rear - 1 + SIZE) % SIZE;
-    printf("¹®¼­ \'%s\'°¡ Ãë¼ÒµÇ¾ú½À´Ï´Ù.\n", documentName);
+    printf("ë¬¸ì„œ \'%s\'ê°€ ì·¨ì†Œë˜ì—ˆìŠµë‹ˆë‹¤.\n", documentName);
     return true;
 }
 
@@ -114,35 +114,35 @@ int main() {
     int numPages;
 
     while (true) {
-        printf("\n1. ÀÛ¾÷ Ãß°¡\n2. ÀÛ¾÷ Ã³¸®\n3. ´ë±â¿­ Ãâ·Â\n4. ÀÛ¾÷Ãë¼Ò\n5. ´ë±â¿­ ÃÊ±âÈ­\n6.Á¾·á\n¼±ÅÃ:");
+        printf("\n1. ì‘ì—… ì¶”ê°€\n2. ì‘ì—… ì²˜ë¦¬\n3. ëŒ€ê¸°ì—´ ì¶œë ¥\n4. ì‘ì—…ì·¨ì†Œ\n5. ëŒ€ê¸°ì—´ ì´ˆê¸°í™”\n6.ì¢…ë£Œ\nì„ íƒ:");
         scanf("%d", &choice);
 
         switch (choice) {
         case 1:
-            printf("¹®¼­ ÀÌ¸§: ");
+            printf("ë¬¸ì„œ ì´ë¦„: ");
             scanf("%s", documentName);
-            printf("ÆäÀÌÁö ¼ö: ");
+            printf("í˜ì´ì§€ ìˆ˜: ");
             scanf("%d", &numPages);
             enqueue(&q, documentName, numPages);
             break;
         case 2:
             PrintJob job = dequeue(&q);
             if (strlen(job.documentName) > 0) {
-                printf("ÀÛ¾÷ '%s' (%d ÆäÀÌÁö)¸¦ Ã³¸® ÁßÀÔ´Ï´Ù...\n", job.documentName, job.numPages);
+                printf("ì‘ì—… '%s' (%d í˜ì´ì§€)ë¥¼ ì²˜ë¦¬ ì¤‘ì…ë‹ˆë‹¤...\n", job.documentName, job.numPages);
             }
             break;
         case 3:
             printQueue(&q);
             break;
         case 4:
-            printf("Ãë¼ÒÇÒ ¹®¼­ ÀÌ¸§ : ");
+            printf("ì·¨ì†Œí•  ë¬¸ì„œ ì´ë¦„ : ");
             scanf("%s", documentName);
             cancelJob(&q, documentName);
             return 0;
         case 5:
             clearQueue(&q);
         default:
-            printf("Àß¸øµÈ ÀÔ·ÂÀÔ´Ï´Ù. ´Ù½Ã ¼±ÅÃÇØ ÁÖ¼¼¿ä.\n");
+            printf("ì˜ëª»ëœ ì…ë ¥ì…ë‹ˆë‹¤. ë‹¤ì‹œ ì„ íƒí•´ ì£¼ì„¸ìš”.\n");
             break;
         }
     }
