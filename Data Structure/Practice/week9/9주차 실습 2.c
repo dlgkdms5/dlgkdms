@@ -31,19 +31,19 @@ bool isFull(PrintQueue* q) {
 
 bool enqueue(PrintQueue* q, char* documentName, int numPages) {
 	if (isFull(q)) {
-		printf("´ë±â¿­ÀÌ °¡µæ Ã¡½À´Ï´Ù. ÀÛ¾÷À» Ãß°¡ÇÒ ¼ö ¾ø½À´Ï´Ù.\n");
+		printf("ëŒ€ê¸°ì—´ì´ ê°€ë“ ì°¼ìŠµë‹ˆë‹¤. ì‘ì—…ì„ ì¶”ê°€í•  ìˆ˜ ì—†ìŠµë‹ˆë‹¤.\n");
 		return false;
 	}
 	strcpy(q->queue[q->rear].documentName, documentName);
 	q->queue[q->rear].numPages = numPages;
 	q->rear = (q->rear + 1) % SIZE;
-	printf("ÀÛ¾÷ '%s' (%d ÆäÀÌÁö)°¡ ´ë±â¿­¿¡ Ãß°¡µÇ¾ú½À´Ï´Ù.\n", documentName, numPages);
+	printf("ì‘ì—… '%s' (%d í˜ì´ì§€)ê°€ ëŒ€ê¸°ì—´ì— ì¶”ê°€ë˜ì—ˆìŠµë‹ˆë‹¤.\n", documentName, numPages);
 	return true;
 }
 
 PrintJob dequeue(PrintQueue* q) {
 	if (isEmpty(q)) {
-		printf("´ë±â¿­ÀÌ ºñ¾î ÀÖ½À´Ï´Ù. ÀÛ¾÷ÀÌ ¾ø½À´Ï´Ù.\n");
+		printf("ëŒ€ê¸°ì—´ì´ ë¹„ì–´ ìˆìŠµë‹ˆë‹¤. ì‘ì—…ì´ ì—†ìŠµë‹ˆë‹¤.\n");
 		PrintJob emptyJob = { "", 0 };
 		return emptyJob;
 	}
@@ -54,13 +54,13 @@ PrintJob dequeue(PrintQueue* q) {
 
 void printQueue(PrintQueue* q) {
 	if (isEmpty(q)) {
-		printf("´ë±â¿­ÀÌ ºñ¾î ÀÖ½À´Ï´Ù.\n");
+		printf("ëŒ€ê¸°ì—´ì´ ë¹„ì–´ ìˆìŠµë‹ˆë‹¤.\n");
 		return;
 	}
-	printf("ÇöÀç ´ë±â ÁßÀÎ ÀÛ¾÷ : \n");
+	printf("í˜„ì¬ ëŒ€ê¸° ì¤‘ì¸ ì‘ì—… : \n");
 	int i = q->front;
 	while (i != q->rear) {
-		printf("- %s (%d ÆäÀÌÁö)\n", q->queue[i].documentName, q->queue[i].numPages);
+		printf("- %s (%d í˜ì´ì§€)\n", q->queue[i].documentName, q->queue[i].numPages);
 		i = (i + 1) % SIZE;
 	}
 }
@@ -74,14 +74,14 @@ int main() {
 	int numPages;
 
 	while (true) {
-		printf("\n1. ÀÛ¾÷ Ãß°¡\n2. ÀÛ¾÷ Ã³¸®\n3. ´ë±â¿­ Ãâ·Â\n4. Á¾·á\n¼±ÅÃ: ");
+		printf("\n1. ì‘ì—… ì¶”ê°€\n2. ì‘ì—… ì²˜ë¦¬\n3. ëŒ€ê¸°ì—´ ì¶œë ¥\n4. ì¢…ë£Œ\nì„ íƒ: ");
 		scanf("%d", % choice);
 
 		switch (choice) {
 		case 1:
-			printf("¹®¼­ ÀÌ¸§ : ");
+			printf("ë¬¸ì„œ ì´ë¦„ : ");
 			scanf("%s", documentName);
-			printf("ÆäÀÌÁö ¼ö : ");
+			printf("í˜ì´ì§€ ìˆ˜ : ");
 			scanf("%d", &numPages);
 			enqueue(&q, documentName, numPages);
 			break;
@@ -89,10 +89,10 @@ int main() {
 			printQueue(&q);
 			break;
 		case 4:
-			printf("ÇÁ·Î±×·¥À» Á¾·áÇÕ´Ï´Ù.\n");
+			printf("í”„ë¡œê·¸ë¨ì„ ì¢…ë£Œí•©ë‹ˆë‹¤.\n");
 			return 0;
 		default:
-			printf("Àß¸øµÈ ÀÔ·ÂÀÔ´Ï´Ù. ´Ù½Ã ¼±ÅÃÇØ ÁÖ¼¼¿ä.\n");
+			printf("ì˜ëª»ëœ ì…ë ¥ì…ë‹ˆë‹¤. ë‹¤ì‹œ ì„ íƒí•´ ì£¼ì„¸ìš”.\n");
 			break;
 		}
 	}
