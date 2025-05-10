@@ -2,7 +2,7 @@
 #include <stdlib.h>
 
 
-//1. ¸®½ºÆ®ÀÇ ¸Ç ¾Õ¿¡ »ğÀÔ
+//1. ë¦¬ìŠ¤íŠ¸ì˜ ë§¨ ì•ì— ì‚½ì…
 typedef struct Node {
 	int data;
 	struct Node* next;
@@ -38,7 +38,7 @@ int main() {
 	return 0;
 }
 
-// ¸®½ºÆ®ÀÇ ¸Ç µÚ¿¡ »ğÀÔ
+// ë¦¬ìŠ¤íŠ¸ì˜ ë§¨ ë’¤ì— ì‚½ì…
 Node* insertLast(Node* head, int data) {
 	Node* newNode = (Node*)malloc(sizeof(Node));
 	newNode->data = data;
@@ -57,7 +57,7 @@ Node* insertLast(Node* head, int data) {
 	return head;
 }
 
-//¸®½ºÆ®ÀÇ Æ¯Á¤ À§Ä¡¿¡ »ğÀÔ
+//ë¦¬ìŠ¤íŠ¸ì˜ íŠ¹ì • ìœ„ì¹˜ì— ì‚½ì…
 void insertAfterValue(Node* head, int targetValue, int newData) {
 	Node* current = head;
 
@@ -72,10 +72,10 @@ void insertAfterValue(Node* head, int targetValue, int newData) {
 		current = current->next;
 	}
 
-	printf("°ª %d¸¦ °¡Áø ³ëµå¸¦ Ã£À» ¼ö ¾ø½À´Ï´Ù. »ğÀÔÇÏÁö ¾Ê½À´Ï´Ù.\n", targetValue);
+	printf("ê°’ %dë¥¼ ê°€ì§„ ë…¸ë“œë¥¼ ì°¾ì„ ìˆ˜ ì—†ìŠµë‹ˆë‹¤. ì‚½ì…í•˜ì§€ ì•ŠìŠµë‹ˆë‹¤.\n", targetValue);
 }
 
-//»ğÀÔ Å×½ºÆ®
+//ì‚½ì… í…ŒìŠ¤íŠ¸
 int main() {
 	Node* head = NULL;
 
