@@ -10,7 +10,7 @@ int main() {
 	Node* head = NULL;
 
 	if (head == NULL) {
-		printf("����Ʈ�� �ʱ�ȭ�Ǿ����ϴ�. ���� ����Ʈ�� ��� �ֽ��ϴ�.");
+		printf("리스트가 초기화되었습니다. 현재 리스트는 비어 있습니다.");
 	}
 
 	return 0;
