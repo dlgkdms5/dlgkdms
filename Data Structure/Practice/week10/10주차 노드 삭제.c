@@ -2,7 +2,7 @@
 #include <stdlib.h>
 
 
-//1. ¸®½ºÆ®ÀÇ ¸Ç ¾Õ¿¡ »ğÀÔ
+//1. ë¦¬ìŠ¤íŠ¸ì˜ ë§¨ ì•ì— ì‚½ì…
 typedef struct Node {
 	int data;
 	struct Node* next;
@@ -38,7 +38,7 @@ int main() {
 	return 0;
 }
 
-// ¸®½ºÆ®ÀÇ ¸Ç µÚ¿¡ »ğÀÔ
+// ë¦¬ìŠ¤íŠ¸ì˜ ë§¨ ë’¤ì— ì‚½ì…
 Node* insertLast(Node* head, int data) {
 	Node* newNode = (Node*)malloc(sizeof(Node));
 	newNode->data = data;
@@ -57,7 +57,7 @@ Node* insertLast(Node* head, int data) {
 	return head;
 }
 
-//¸®½ºÆ®ÀÇ Æ¯Á¤ À§Ä¡¿¡ »ğÀÔ
+//ë¦¬ìŠ¤íŠ¸ì˜ íŠ¹ì • ìœ„ì¹˜ì— ì‚½ì…
 void insertAfterValue(Node* head, int targetValue, int newData) {
 	Node* current = head;
 
@@ -72,13 +72,13 @@ void insertAfterValue(Node* head, int targetValue, int newData) {
 		current = current->next;
 	}
 
-	printf("°ª %d¸¦ °¡Áø ³ëµå¸¦ Ã£À» ¼ö ¾ø½À´Ï´Ù. »ğÀÔÇÏÁö ¾Ê½À´Ï´Ù.\n", targetValue);
+	printf("ê°’ %dë¥¼ ê°€ì§„ ë…¸ë“œë¥¼ ì°¾ì„ ìˆ˜ ì—†ìŠµë‹ˆë‹¤. ì‚½ì…í•˜ì§€ ì•ŠìŠµë‹ˆë‹¤.\n", targetValue);
 }
 
-//1. ¸®½ºÆ®ÀÇ ¸Ç ¾Õ ³ëµå(Çìµå ³ëµå) »èÁ¦
+//1. ë¦¬ìŠ¤íŠ¸ì˜ ë§¨ ì• ë…¸ë“œ(í—¤ë“œ ë…¸ë“œ) ì‚­ì œ
 Node* deleteHead(Node* head) {
 	if (head == NULL) {
-		printf("¸®½ºÆ®°¡ ºñ¾î ÀÖ½À´Ï´Ù. »èÁ¦ÇÒ †ë°¡ ¾ø½À´Ï´Ù.\n");
+		printf("ë¦¬ìŠ¤íŠ¸ê°€ ë¹„ì–´ ìˆìŠµë‹ˆë‹¤. ì‚­ì œí•  Â†è«› ì—†ìŠµë‹ˆë‹¤.\n");
 		return NULL;
 	}
 
@@ -89,10 +89,10 @@ Node* deleteHead(Node* head) {
 	return head;
 }
 
-//2. ¸®½ºÆ®ÀÇ ¸Ç µÚ ³ëµå »èÁ¦
+//2. ë¦¬ìŠ¤íŠ¸ì˜ ë§¨ ë’¤ ë…¸ë“œ ì‚­ì œ
 Node* deleteLast(Node* head) {
 	if (head == NULL) {
-		printf("¸®½ºÆ®°¡ ºñ¾î ÀÖ½À´Ï´Ù. »èÁ¦ÇÒ ³ëµå°¡ ¾ø½À´Ï´Ù.\n");
+		printf("ë¦¬ìŠ¤íŠ¸ê°€ ë¹„ì–´ ìˆìŠµë‹ˆë‹¤. ì‚­ì œí•  ë…¸ë“œê°€ ì—†ìŠµë‹ˆë‹¤.\n");
 		return NULL;
 	}
 
@@ -112,10 +112,10 @@ Node* deleteLast(Node* head) {
 	return head;
 }
 
-//3. Æ¯Á¤ À§Ä¡ÀÇ ³ëµå »èÁ¦
+//3. íŠ¹ì • ìœ„ì¹˜ì˜ ë…¸ë“œ ì‚­ì œ
 Node* deleteNode(Node* head, int targetValue) {
 	if (head == NULL) {
-		printf("¸®½ºÆ®°¡ ºñ¾î ÀÖ½À´Ï´Ù. »èÁ¦ÇÒ ³ëµå°¡ ¾ø½À´Ï´Ù.\n");
+		printf("ë¦¬ìŠ¤íŠ¸ê°€ ë¹„ì–´ ìˆìŠµë‹ˆë‹¤. ì‚­ì œí•  ë…¸ë“œê°€ ì—†ìŠµë‹ˆë‹¤.\n");
 		return NULL;
 	}
 
@@ -132,7 +132,7 @@ Node* deleteNode(Node* head, int targetValue) {
 	}
 
 	if (current->next == NULL) {
-		printf("°ª %d¸¦ °¡Áø ³ëµå¸¦ Ã£À» ¼ö ¾ø½À´Ï´Ù.\n", targetValue);
+		printf("ê°’ %dë¥¼ ê°€ì§„ ë…¸ë“œë¥¼ ì°¾ì„ ìˆ˜ ì—†ìŠµë‹ˆë‹¤.\n", targetValue);
 		return head;
 	}
 
@@ -143,7 +143,7 @@ Node* deleteNode(Node* head, int targetValue) {
 	return head;
 }
 
-//4. »èÁ¦ Å×½ºÆ®
+//4. ì‚­ì œ í…ŒìŠ¤íŠ¸
 int main() {
 	Node* head = NULL;
 
