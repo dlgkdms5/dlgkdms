@@ -13,7 +13,7 @@ Node* addContact(Node* head, const char* name, const char* phone) {
 	strcpy(newNode->name, name);
 	strcpy(newNode->phone, phone);
 	newNode->next = head;
-	printf("¿¬¶ôÃ³ : %s[%s] Ãß°¡\n", name, phone);
+	printf("ì—°ë½ì²˜ : %s[%s] ì¶”ê°€\n", name, phone);
 	return newNode;
 }
 
@@ -21,12 +21,12 @@ void searchContact(Node* head, const char* name) {
 	Node* current = head;
 	while (current != NULL) {
 		if (strcmp(current->name, name) == 0) {
-			printf("°Ë»ö °á°ú : %sÀÇ ÀüÈ­¹øÈ£ - %s", current->name, current->phone);
+			printf("ê²€ìƒ‰ ê²°ê³¼ : %sì˜ ì „í™”ë²ˆí˜¸ - %s", current->name, current->phone);
 			return;
 		}
 		current = current->next;
 	}
-	printf("%s ÀÌ¸§ÀÇ ¿¬¶ôÃ³°¡ ¾ø½À´Ï´Ù.\n", name);
+	printf("%s ì´ë¦„ì˜ ì—°ë½ì²˜ê°€ ì—†ìŠµë‹ˆë‹¤.\n", name);
 }
 
 Node* deleteContact(Node* head, const char* name) {
@@ -41,25 +41,25 @@ Node* deleteContact(Node* head, const char* name) {
 			else {
 				prev->next = current->next;
 			}
-			printf("»èÁ¦ ¿Ï·á : %sÀÇ ÀüÈ­¹øÈ£ - %s\n", current->name, current->phone);
+			printf("ì‚­ì œ ì™„ë£Œ : %sì˜ ì „í™”ë²ˆí˜¸ - %s\n", current->name, current->phone);
 			free(current);
 			return head;
 		}
 		prev = current;
 		current = current->next;
 	}
-	printf("%s ÀÌ¸§ÀÇ ¿¬¶ôÃ³°¡ ¾ø½À´Ï´Ù.\n", name);
+	printf("%s ì´ë¦„ì˜ ì—°ë½ì²˜ê°€ ì—†ìŠµë‹ˆë‹¤.\n", name);
 }
 
 void displayContacts(Node* head) {
 	if (head == NULL) {
-		printf("ÀüÈ­¹øÈ£ºÎ°¡ ºñ¾î ÀÖ½À´Ï´Ù.\n");
+		printf("ì „í™”ë²ˆí˜¸ë¶€ê°€ ë¹„ì–´ ìˆìŠµë‹ˆë‹¤.\n");
 		return;
 	}
-	printf("ÇöÀç ÀüÈ­¹øÈ£ºÎ-----\n");
+	printf("í˜„ì¬ ì „í™”ë²ˆí˜¸ë¶€-----\n");
 	Node* current = head;
 	while (current != NULL) {
-		printf("%sÀÇ ÀüÈ­¹øÈ£ - %s\n", current->name, current->phone);
+		printf("%sì˜ ì „í™”ë²ˆí˜¸ - %s\n", current->name, current->phone);
 		current = current->next;
 	}
 }
@@ -71,7 +71,7 @@ void freeList(Node* head) {
 		head = head->next;
 		free(temp);
 	}
-	printf("¸ğµç ¸Ş¸ğ¸® ÇØÁ¦\n");
+	printf("ëª¨ë“  ë©”ëª¨ë¦¬ í•´ì œ\n");
 }
 
 int main() {
@@ -81,28 +81,28 @@ int main() {
 	char phone[20];
 
 	while (1) {
-		printf("ÀüÈ­¹øÈ£ºÎ °ü¸®\n");
-		printf("1. ¿¬¶ôÃ³ Ãß°¡\n");
-		printf("2. ¿¬¶ôÃ³ °Ë»ö\n");
-		printf("3. ¿¬¶ôÃ³ »èÁ¦\n");
-		printf("4. ¿¬¶ôÃ³ º¸±â\n");
-		printf("5. Á¾·á\n");
+		printf("ì „í™”ë²ˆí˜¸ë¶€ ê´€ë¦¬\n");
+		printf("1. ì—°ë½ì²˜ ì¶”ê°€\n");
+		printf("2. ì—°ë½ì²˜ ê²€ìƒ‰\n");
+		printf("3. ì—°ë½ì²˜ ì‚­ì œ\n");
+		printf("4. ì—°ë½ì²˜ ë³´ê¸°\n");
+		printf("5. ì¢…ë£Œ\n");
 		scanf("%d", &choice);
 		switch (choice) {
 		case 1:
-			printf("ÀÌ¸§ : ");
+			printf("ì´ë¦„ : ");
 			scanf("%s", name);
-			printf("ÀüÈ­¹øÈ£ : ");
+			printf("ì „í™”ë²ˆí˜¸ : ");
 			scanf("%s", phone);
 			head = addContact(head, name, phone);
 			break;
 		case 2:
-			printf("ÀÌ¸§ : ");
+			printf("ì´ë¦„ : ");
 			scanf("%s", name);
 			searchContact(head, name);
 			break;
 		case 3:
-			printf("ÀÌ¸§ : ");
+			printf("ì´ë¦„ : ");
 			scanf("%s", name);
 			head = deleteContact(head, name);
 			break;
@@ -113,7 +113,7 @@ int main() {
 			freeList(head);
 			return 0;
 		default:
-			printf("Àß¸øµÈ °ª ÀÔ·Â. ´Ù½Ã ÀÔ·ÂÇÏ¼¼¿À.\n");
+			printf("ì˜ëª»ëœ ê°’ ì…ë ¥. ë‹¤ì‹œ ì…ë ¥í•˜ì„¸ì˜¤.\n");
 			break;
 		}
 	}
