@@ -50,12 +50,12 @@ void insertAfterValue(Node* head, int targetValue, int newData) {
         }
         current = current->next;
     }
-    printf("°ª %d¸¦ °¡Áø ³ëµå¸¦ Ã£À» ¼ö ¾ø½À´Ï´Ù. »ğÀÔÇÏÁö ¾Ê½À´Ï´Ù.\n", targetValue);
+    printf("ê°’ %dë¥¼ ê°€ì§„ ë…¸ë“œë¥¼ ì°¾ì„ ìˆ˜ ì—†ìŠµë‹ˆë‹¤. ì‚½ì…í•˜ì§€ ì•ŠìŠµë‹ˆë‹¤.\n", targetValue);
 }
 
 Node* deleteHead(Node* head) {
     if (head == NULL) {
-        printf("¸®½ºÆ®°¡ ºñ¾î ÀÖ½À´Ï´Ù. »èÁ¦ÇÒ ³ëµå°¡ ¾ø½À´Ï´Ù.\n");
+        printf("ë¦¬ìŠ¤íŠ¸ê°€ ë¹„ì–´ ìˆìŠµë‹ˆë‹¤. ì‚­ì œí•  ë…¸ë“œê°€ ì—†ìŠµë‹ˆë‹¤.\n");
         return NULL;
     }
 
@@ -68,7 +68,7 @@ Node* deleteHead(Node* head) {
 
 Node* deleteLast(Node* head) {
     if (head == NULL) {
-        printf("¸®½ºÆ®°¡ ºñ¾î ÀÖ½À´Ï´Ù. »èÁ¦ÇÒ ³ëµå°¡ ¾ø½À´Ï´Ù.\n");
+        printf("ë¦¬ìŠ¤íŠ¸ê°€ ë¹„ì–´ ìˆìŠµë‹ˆë‹¤. ì‚­ì œí•  ë…¸ë“œê°€ ì—†ìŠµë‹ˆë‹¤.\n");
         return NULL;
     }
 
@@ -90,7 +90,7 @@ Node* deleteLast(Node* head) {
 
 Node* deleteNode(Node* head, int targetValue) {
     if (head == NULL) {
-        printf("¸®½ºÆ®°¡ ºñ¾î ÀÖ½À´Ï´Ù. »èÁ¦ÇÒ ³ëµå°¡ ¾ø½À´Ï´Ù.\n");
+        printf("ë¦¬ìŠ¤íŠ¸ê°€ ë¹„ì–´ ìˆìŠµë‹ˆë‹¤. ì‚­ì œí•  ë…¸ë“œê°€ ì—†ìŠµë‹ˆë‹¤.\n");
         return NULL;
     }
 
@@ -123,12 +123,12 @@ void freeList(Node* head) {
         head = head->next;
         free(temp);
     }
-    printf("¸ğµç ³ëµå°¡ Á¦°ÅµÇ¾ú½À´Ï´Ù.\n");
+    printf("ëª¨ë“  ë…¸ë“œê°€ ì œê±°ë˜ì—ˆìŠµë‹ˆë‹¤.\n");
 }
 
 int searchValue1(Node* head, int val) {
     if (head == NULL) {
-        printf("Head Node°¡ NULL ÀÔ´Ï´Ù.\n");
+        printf("Head Nodeê°€ NULL ì…ë‹ˆë‹¤.\n");
         return -1;
     }
     Node* current = head;
@@ -138,17 +138,17 @@ int searchValue1(Node* head, int val) {
         if (current->data == val) return pos;
         else current = current->next;
     }
-    printf("°ªÀÌ ¾ø½À´Ï´Ù.\n");
+    printf("ê°’ì´ ì—†ìŠµë‹ˆë‹¤.\n");
     return -1;
 }
 void searchValue2(Node* head, int val) {
     if (head == NULL) {
-        printf("Head Node°¡ NULL ÀÔ´Ï´Ù.\n");
+        printf("Head Nodeê°€ NULL ì…ë‹ˆë‹¤.\n");
         return;
     }
     if (head->data == val) {
-        printf("%dÀÇ ÀÌÀü°ª : ¾øÀ½\n", val);
-        printf("%dÀÇ ´ÙÀ½°ª : %d\n", val, head->next->data);
+        printf("%dì˜ ì´ì „ê°’ : ì—†ìŒ\n", val);
+        printf("%dì˜ ë‹¤ìŒê°’ : %d\n", val, head->next->data);
         return;
     }
     Node* current = head;
@@ -156,11 +156,11 @@ void searchValue2(Node* head, int val) {
         current = current->next;
     }
     if (current->next == NULL) {
-        printf("%d¸¦ Ã£À» ¼ö ¾ø½À´Ï´Ù.\n", val);
+        printf("%dë¥¼ ì°¾ì„ ìˆ˜ ì—†ìŠµë‹ˆë‹¤.\n", val);
         return;
     }
-    printf("%dÀÇ ÀÌÀü°ª : ¾øÀ½\n", val, current->data);
-    printf("%dÀÇ ´ÙÀ½°ª : %d\n", val, current->next->next->data);
+    printf("%dì˜ ì´ì „ê°’ : ì—†ìŒ\n", val, current->data);
+    printf("%dì˜ ë‹¤ìŒê°’ : %d\n", val, current->next->next->data);
 }
 
 int main() {
