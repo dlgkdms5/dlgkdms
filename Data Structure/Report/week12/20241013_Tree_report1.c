@@ -10,7 +10,7 @@ typedef struct TreeNode {
 TreeNode* createNode(int data) {
 	TreeNode* node = (TreeNode*)malloc(sizeof(TreeNode));
 	if (node == NULL) {
-		printf("¸Ş¸ğ¸® ÇÒ´ç ¿À·ù\n");
+		printf("ë©”ëª¨ë¦¬ í• ë‹¹ ì˜¤ë¥˜\n");
 		exit(1);
 	}
 	node->data = data;
@@ -116,26 +116,26 @@ int main() {
 	root->right->left = createNode(15);
 	root->right->right = createNode(25);
 
-	printf("ÀüÀ§ ¼øÈ¸ : ");
+	printf("ì „ìœ„ ìˆœíšŒ : ");
 	preorder(root);
 	printf("\n");
 
-	printf("ÁßÀ§ ¼øÈ¸ : ");
+	printf("ì¤‘ìœ„ ìˆœíšŒ : ");
 	inorder(root);
 	printf("\n");
 
-	printf("ÈÄÀ§ ¼øÈ¸ : ");
+	printf("í›„ìœ„ ìˆœíšŒ : ");
 	postorder(root);
 	printf("\n");
 
-	printf("Æ®¸® ³ôÀÌ : %d\n", getHeight(root));
-	printf("ÀüÃ¼ ³ëµå ¼ö : % d\n", countNodes(root));
-	printf("¸®ÇÁ ³ëµå ¼ö : %d\n", countLeaves(root));
+	printf("íŠ¸ë¦¬ ë†’ì´ : %d\n", getHeight(root));
+	printf("ì „ì²´ ë…¸ë“œ ìˆ˜ : % d\n", countNodes(root));
+	printf("ë¦¬í”„ ë…¸ë“œ ìˆ˜ : %d\n", countLeaves(root));
 
-	printf("³ëµå °ª ÃÑÇÕ : %d\n", getSum(root));
-	printf("ÃÖ´ñ°ª : %d\n", getMax(root));
+	printf("ë…¸ë“œ ê°’ ì´í•© : %d\n", getSum(root));
+	printf("ìµœëŒ“ê°’ : %d\n", getMax(root));
 
-	printf("°ªÀÌ 6 ÀÌ»ó 20 ÀÌÇÏÀÎ ³ëµå : ");
+	printf("ê°’ì´ 6 ì´ìƒ 20 ì´í•˜ì¸ ë…¸ë“œ : ");
 	searchRange(root, 6, 20);
 	printf("\n");
 
