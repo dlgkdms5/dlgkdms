@@ -11,7 +11,7 @@ typedef struct {
 void initStack(Stack* s, int initialSize) {
 	s->data = (int*)malloc(initialSize * sizeof(int));
 	if (s->data == NULL) {
-		printf("¸Ş¸ğ¸® ÇÒ´ç ½ÇÆĞ!\n");
+		printf("ë©”ëª¨ë¦¬ í• ë‹¹ ì‹¤íŒ¨!\n");
 		exit(1);
 	}
 	s->top = -1;
@@ -30,12 +30,12 @@ void expandStack(Stack* s) {
 	int newCapacity = s->capacity + 5;
 	int* newData = (int*)realloc(s->data, newCapacity * sizeof(int));
 	if (newData == NULL) {
-		printf("¸Ş¸ğ¸® ÀçÇÒ´ç ½ÇÆĞ!\n");
+		printf("ë©”ëª¨ë¦¬ ì¬í• ë‹¹ ì‹¤íŒ¨!\n");
 		exit(1);
 	}
 	s->data = newData;
 	s->capacity = newCapacity;
-	printf("½ºÅÃ ¿ë·®ÀÌ %d·Î Áõ°¡Çß½À´Ï´Ù.\n", s->capacity);
+	printf("ìŠ¤íƒ ìš©ëŸ‰ì´ %dë¡œ ì¦ê°€í–ˆìŠµë‹ˆë‹¤.\n", s->capacity);
 }
 
 void push(Stack* s, int value) {
@@ -43,33 +43,33 @@ void push(Stack* s, int value) {
 		expandStack(s);
 	}
 	s->data[++(s->top)] = value;
-	printf("%dÀ»(¸¦) ½ºÅÃ¿¡ Ãß°¡Çß½À´Ï´Ù.\n", value);
+	printf("%dì„(ë¥¼) ìŠ¤íƒì— ì¶”ê°€í–ˆìŠµë‹ˆë‹¤.\n", value);
 }
 
 int pop(Stack* s) {
 	if (isEmpty(s)) {
-		printf("½ºÅÃ ¾ğ´õÇÃ·Î¿ì! Á¦°ÅÇÒ ¿ä¼Ò°¡ ¾ø½À´Ï´Ù.\n");
+		printf("ìŠ¤íƒ ì–¸ë”í”Œë¡œìš°! ì œê±°í•  ìš”ì†Œê°€ ì—†ìŠµë‹ˆë‹¤.\n");
 		return -1;
 	}
-	printf("Á¦°ÅµÈ °ª : %d\n", s->data[s->top]);
+	printf("ì œê±°ëœ ê°’ : %d\n", s->data[s->top]);
 	return s->data[(s->top)--];
 }
 
 int peek(Stack* s) {
 	if (isEmpty(s)) {
-		printf("½ºÅÃÀÌ ºñ¾î ÀÖ½À´Ï´Ù! È®ÀÎÇÒ °ªÀÌ ¾ø½À´Ï´Ù.\n");
+		printf("ìŠ¤íƒì´ ë¹„ì–´ ìˆìŠµë‹ˆë‹¤! í™•ì¸í•  ê°’ì´ ì—†ìŠµë‹ˆë‹¤.\n");
 		return -1;
 	}
-	printf("ÃÖ»ó´Ü °ª : %d\n", s->data[s->top]);
+	printf("ìµœìƒë‹¨ ê°’ : %d\n", s->data[s->top]);
 	return s->data[s->top];
 }
 
 void display(Stack* s) {
 	if (isEmpty(s)) {
-		printf("½ºÅÃÀÌ ºñ¾î ÀÖ½À´Ï´Ù!\n");
+		printf("ìŠ¤íƒì´ ë¹„ì–´ ìˆìŠµë‹ˆë‹¤!\n");
 		return;
 	}
-	printf("½ºÅÃ ³»¿ë : ");
+	printf("ìŠ¤íƒ ë‚´ìš© : ");
 	for (int i = 0; i <= s->top; i++) {
 		printf("%d", s->data[i]);
 	}
@@ -78,7 +78,7 @@ void display(Stack* s) {
 
 void freeStack(Stack* s) {
 	free(s->data);
-	printf("½ºÅÃ ¸Ş¸ğ¸®¸¦ ÇØÁ¦Çß½À´Ï´Ù.\n");
+	printf("ìŠ¤íƒ ë©”ëª¨ë¦¬ë¥¼ í•´ì œí–ˆìŠµë‹ˆë‹¤.\n");
 }
 
 int main() {
@@ -87,18 +87,18 @@ int main() {
 
 	int choice, value;
 	while (1) {
-		printf("\n---½ºÅÃ ¸Ş´º---\n");
-		printf("1. Ãß°¡ (Push)\n)");
-		printf("2. Á¦°Å (Pop)\n)");
-		printf("3. ÃÖ»ó´Ü °ª È®ÀÎ (Peek)\n)");
-		printf("4. ½ºÅÃ ³»¿ë Ãâ·Â\n)");
-		printf("5. Á¾·á\n)");
-		printf("¸Å´º¸¦ ¼±ÅÃÇÏ¼¼¿ä : ");
+		printf("\n---ìŠ¤íƒ ë©”ë‰´---\n");
+		printf("1. ì¶”ê°€ (Push)\n)");
+		printf("2. ì œê±° (Pop)\n)");
+		printf("3. ìµœìƒë‹¨ ê°’ í™•ì¸ (Peek)\n)");
+		printf("4. ìŠ¤íƒ ë‚´ìš© ì¶œë ¥\n)");
+		printf("5. ì¢…ë£Œ\n)");
+		printf("ë§¤ë‰´ë¥¼ ì„ íƒí•˜ì„¸ìš” : ");
 		scanf("%d", &choice);
 
 		switch (choice) {
 		case 1:
-			printf("½ºÅÃ¿¡ Ãß°¡ÇÒ °ªÀ» ÀÔ·ÂÇÏ¼¼¿ä : ");
+			printf("ìŠ¤íƒì— ì¶”ê°€í•  ê°’ì„ ì…ë ¥í•˜ì„¸ìš” : ");
 			scanf("%d", &value);
 			push(&s, value);
 			break;
@@ -113,10 +113,10 @@ int main() {
 			break;
 		case 5:
 			freeStack(&s);
-			printf("ÇÁ·Î±×·¥À» Á¾·áÇÕ´Ï´Ù.\n");
+			printf("í”„ë¡œê·¸ë¨ì„ ì¢…ë£Œí•©ë‹ˆë‹¤.\n");
 			return 0;
 		default:
-			printf("Àß¸øµÈ ¼±ÅÃÀÔ´Ï´Ù! 1¿¡¼­ 5 »çÀÌÀÇ ¼ıÀÚ¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä.\n");
+			printf("ì˜ëª»ëœ ì„ íƒì…ë‹ˆë‹¤! 1ì—ì„œ 5 ì‚¬ì´ì˜ ìˆ«ìë¥¼ ì…ë ¥í•´ì£¼ì„¸ìš”.\n");
 		}
 	}
 }
