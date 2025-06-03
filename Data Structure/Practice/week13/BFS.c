@@ -12,7 +12,7 @@ typedef struct TreeNode {
 TreeNode* createNode(int data) {
 	TreeNode* node = (TreeNode*)malloc(sizeof(TreeNode));
 	if (node == NULL) {
-		printf("¸Þ¸ð¸® ÇÒ´ç ¿À·ù\n");
+		printf("ë©”ëª¨ë¦¬ í• ë‹¹ ì˜¤ë¥˜\n");
 		exit(1);
 	}
 	node->data = data;
@@ -92,7 +92,7 @@ int main() {
 	root->right->left = createNode(15);
 	root->right->right = createNode(25);
 	
-	printf("·¹º§ ¼øÈ¸: ");
+	printf("ë ˆë²¨ ìˆœíšŒ: ");
 	levelOrder(root);
 
 	freeTree(root);
